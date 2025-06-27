@@ -1,0 +1,15 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+README.md
+Dockerfile
+.dockerignore
+.env
+.env.local
+.env.production
+.env.staging
+.DS_Store
+*.log
+public/liming-teacher-latest.png
+public/liming-teacher.webp 
