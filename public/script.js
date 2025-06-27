@@ -138,12 +138,12 @@ function addMessage(text, sender) {
     messageDiv.className = `message ${sender}-message`;
     
     const timestamp = formatTime(new Date());
-    const avatarSrc = sender === 'teacher' ? 'teacher-avatar.svg' : 'user-avatar.svg';
+    const avatarSrc = sender === 'teacher' ? 'liming-teacher.png' : 'user-avatar.svg';
     
     messageDiv.innerHTML = `
         <div class="message-avatar">
-            <img src="${avatarSrc}" alt="${sender === 'teacher' ? '礼明老师' : '用户'}" 
-                 onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM2MzY2ZjEiLz4KPHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSIxMCIgeT0iMTAiPgo8cGF0aCBkPSJNMjAgMjFWMTlBNCA0IDAgMCAwIDEyIDEySDEyQTQgNCAwIDAgMCA0IDE5VjIxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjciIHI9IjQiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4KPC9zdmc+'">
+            <img src="${avatarSrc}" alt="${sender === 'teacher' ? '张礼明老师' : '用户'}" 
+                 onerror="this.src='${sender === 'teacher' ? 'teacher-avatar.svg' : 'user-avatar.svg'}'">
         </div>
         <div class="message-content">
             <div class="message-text">${formatMessageText(text)}</div>

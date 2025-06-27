@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>头像测试 - 张老师智能体</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .avatar-test {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+        .avatar-item {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+        }
+        .avatar-item h3 {
+            margin: 0 0 15px 0;
+            color: #333;
+        }
+        .avatar-large {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 70%;
+            border: 4px solid #4f46e5;
+        }
+        .avatar-medium {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 70%;
+            border: 3px solid #7c3aed;
+        }
+        .avatar-small {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #2563eb;
+        }
+        .status {
+            margin-top: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        .back-link:hover {
+            background: #3730a3;
+        }
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid #2196f3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← 返回主页</a>
+        
+        <div class="header">
+            <h1>🖼️ 张老师头像测试</h1>
+            <p>测试头像在不同尺寸下的显示效果</p>
+        </div>
+
+        <div class="avatar-test">
+            <div class="avatar-item">
+                <h3>大头像 (200x200)</h3>
+                <img src="liming-teacher.png" alt="张礼明老师" class="avatar-large" 
+                     onload="showStatus(this, 'success')" 
+                     onerror="showStatus(this, 'error')">
+                <div class="status" id="status-large">加载中...</div>
+            </div>
+
+            <div class="avatar-item">
+                <h3>中头像 (100x100)</h3>
+                <img src="liming-teacher.png" alt="张礼明老师" class="avatar-medium" 
+                     onload="showStatus(this, 'success')" 
+                     onerror="showStatus(this, 'error')">
+                <div class="status" id="status-medium">加载中...</div>
+            </div>
+
+            <div class="avatar-item">
+                <h3>小头像 (60x60)</h3>
+                <img src="liming-teacher.png" alt="张礼明老师" class="avatar-small" 
+                     onload="showStatus(this, 'success')" 
+                     onerror="showStatus(this, 'error')">
+                <div class="status" id="status-small">加载中...</div>
+            </div>
+        </div>
+
+        <div class="info">
+            <h4>📋 测试说明</h4>
+            <ul>
+                <li><strong>文件路径</strong>: /public/liming-teacher.svg</li>
+                <li><strong>文件大小</strong>: 约4KB</li>
+                <li><strong>格式</strong>: SVG矢量图</li>
+                <li><strong>特点</strong>: 专业商务风格，戴眼镜，深色西装</li>
+            </ul>
+            
+            <h4>🔧 如果头像未显示</h4>
+            <ol>
+                <li>强制刷新浏览器 (Ctrl+F5 或 Cmd+Shift+R)</li>
+                <li>清除浏览器缓存</li>
+                <li>检查服务器是否正在运行</li>
+                <li>确认文件路径正确</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function showStatus(img, status) {
+            const statusDiv = img.nextElementSibling;
+            if (status === 'success') {
+                statusDiv.textContent = '✅ 加载成功';
+                statusDiv.className = 'status success';
+            } else {
+                statusDiv.textContent = '❌ 加载失败';
+                statusDiv.className = 'status error';
+                // 尝试降级到备用头像
+                img.src = 'teacher-avatar.svg';
+            }
+        }
+
+        // 页面加载完成后显示文件信息
+        window.addEventListener('load', function() {
+            console.log('头像测试页面加载完成');
+            console.log('当前时间:', new Date().toLocaleString());
+        });
+    </script>
+</body>
+</html> 
